@@ -127,6 +127,39 @@ module.exports = {
         proxy: null, // 设置代理
         before: app => { }
     },
+    // configureWebpack: {
+    //     externals: {
+    //         'vue': 'Vue',
+    //         'vue-router': 'VueRouter',
+    //         'vuex': 'Vuex',
+    //         'vue-i18n': 'VueI18n',
+    //         'axios': 'axios',
+    //         'iview': 'iview',
+    //         'mockjs': 'Mock',
+    //         'fastclick': 'FastClick',
+    //     },
+    //     resolve: {
+    //         extensions: ['.js', '.vue', '.json', '.less'],
+    //         /*配置项目路径别名*/
+    //         alias: {
+    //             'vue$': 'vue/dist/vue.esm.js',
+    //             'SRC': resolve('src'),
+    //             'API': resolve('src/api'),
+    //             'STATIC': resolve('static'),
+    //             'STYLE': resolve('src/assets/styles'),
+    //             'IMAGE': resolve('src/assets/images'),
+    //             'COMMON': resolve('src/common'),
+    //             'VIEW': resolve('src/components/views'),
+    //             'WIDGET': resolve('src/components/widget'),
+    //             'MAIN': resolve('src/components'),
+    //             'UTIL': resolve('src/common/util'),
+    //             'STORE': resolve('src/store'),
+    //             'DATA': resolve('src/common/data'),
+    //             'MIXIN': resolve('src/common/mixins')
+    //         }
+    //     },
+    // },
+
     // css相关配置
     css: {
         extract: true, // 是否使用css分离插件 ExtractTextPlugin
@@ -142,6 +175,7 @@ module.exports = {
     parallel: require('os').cpus().length > 1,
 
     chainWebpack: config => {
+        console.log(config)
         config.module
             .rule('images')
             .use('url-loader')
