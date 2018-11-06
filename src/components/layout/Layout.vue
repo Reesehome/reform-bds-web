@@ -8,7 +8,7 @@
 
 <script>
 import {layout} from 'API'
-import BdsNav from 'MAIN/nav/Nav'
+import BdsNav from 'CMPT/nav/Nav'
 
 export default {
     data () {

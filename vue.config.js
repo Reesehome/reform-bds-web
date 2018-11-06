@@ -181,8 +181,8 @@ module.exports = {
             .set('STYLE', resolve('src/assets/styles'))
             .set('IMAGE', resolve('src/assets/images'))
             .set('COMMON', resolve('src/common'))
-            .set('VIEW', resolve('src/pages'))
-            .set('MAIN', resolve('src/components'))
+            .set('PAGE', resolve('src/pages'))
+            .set('CMPT', resolve('src/components'))
             .set('UTIL', resolve('src/common/util'))
             .set('STORE', resolve('src/store'))
         if (process.env.NODE_ENV === "production") {
