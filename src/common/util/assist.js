@@ -7,7 +7,7 @@ const replaceArrLabel = (arr, oldLab, newLab) => {
         return
     }
     if (!checkType.isArr(arr)) {
-        console.error('replaceArrLabel()：数据格式有误')
+        console.error('replaceArrLabel()：需要传入数组')
         return
     }
     const arrLen = arr.length

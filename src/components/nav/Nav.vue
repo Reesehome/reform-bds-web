@@ -2,7 +2,7 @@
     <div id="nav" :class="`bds-color-${theme}`">
         <i-row>
             <i-col class="nav-logo" :lg="4" :xs="6">
-                <img src="../../../assets/images/logo.png" alt="" height="30">
+                <img src="../../assets/images/logo.png" alt="" height="30">
             </i-col>
             <!-- 默认横向导航 -->
             <i-col class="nav-menu" :lg="16" :xs="0">

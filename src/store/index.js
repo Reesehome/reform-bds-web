@@ -1,4 +1,4 @@
-// import Vue from 'vue'
+import Vue from 'vue'
 import Vuex from 'vuex'
 import app from './modules/app'
 import errorLog from './modules/errorLog'
@@ -7,7 +7,7 @@ import getters from './getters'
 
 import bds from './modules/bds'
 
-// Vue.use(Vuex)
+Vue.use(Vuex)
 
 const modules = {
     bds,

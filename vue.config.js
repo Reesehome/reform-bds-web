@@ -110,6 +110,10 @@ function getEntry (globPath) {
     });
     return entries;
 }
+// 解析路径
+function resolve (dir) {
+    return path.join(__dirname, dir)
+}
 
 let pages = getEntry('./src/pages/**?/*.html');
 //配置end
@@ -120,46 +124,13 @@ module.exports = {
     devServer: {
         index: 'index.html', //默认启动serve 打开index页面
         open: process.platform === 'darwin',
-        host: '',
-        port: 8080,
+        host: 'localhost',
+        port: 8081,
         https: false,
         hotOnly: false,
         proxy: null, // 设置代理
         before: app => { }
     },
-    // configureWebpack: {
-    //     externals: {
-    //         'vue': 'Vue',
-    //         'vue-router': 'VueRouter',
-    //         'vuex': 'Vuex',
-    //         'vue-i18n': 'VueI18n',
-    //         'axios': 'axios',
-    //         'iview': 'iview',
-    //         'mockjs': 'Mock',
-    //         'fastclick': 'FastClick',
-    //     },
-    //     resolve: {
-    //         extensions: ['.js', '.vue', '.json', '.less'],
-    //         /*配置项目路径别名*/
-    //         alias: {
-    //             'vue$': 'vue/dist/vue.esm.js',
-    //             'SRC': resolve('src'),
-    //             'API': resolve('src/api'),
-    //             'STATIC': resolve('static'),
-    //             'STYLE': resolve('src/assets/styles'),
-    //             'IMAGE': resolve('src/assets/images'),
-    //             'COMMON': resolve('src/common'),
-    //             'VIEW': resolve('src/components/views'),
-    //             'WIDGET': resolve('src/components/widget'),
-    //             'MAIN': resolve('src/components'),
-    //             'UTIL': resolve('src/common/util'),
-    //             'STORE': resolve('src/store'),
-    //             'DATA': resolve('src/common/data'),
-    //             'MIXIN': resolve('src/common/mixins')
-    //         }
-    //     },
-    // },
-
     // css相关配置
     css: {
         extract: true, // 是否使用css分离插件 ExtractTextPlugin
@@ -174,8 +145,11 @@ module.exports = {
     // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
     parallel: require('os').cpus().length > 1,
 
+    // webpack相关
     chainWebpack: config => {
-        console.log(config)
+        // console.log(config)
+        // 修改loader规则
+        // 已有的loader规则请看：https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-service/lib/config/base.js
         config.module
             .rule('images')
             .use('url-loader')
@@ -185,9 +159,32 @@ module.exports = {
                 options.limit = 100
                 return options
             })
+        config.module
+            .rule('vue')
+            .test(/\.vue$/)
+            .use(require.resolve('iview-loader'))
+            .loader(require.resolve('iview-loader'))
+            .options({
+                prefix: true
+            })
+
         Object.keys(pages).forEach(entryName => {
             config.plugins.delete(`prefetch-${entryName}`);
         });
+
+        // 增加别名
+        config.resolve.alias
+            .set('vue$', 'vue/dist/vue.esm.js')
+            .set('SRC', resolve('src'))
+            .set('API', resolve('src/api'))
+            .set('STATIC', resolve('static'))
+            .set('STYLE', resolve('src/assets/styles'))
+            .set('IMAGE', resolve('src/assets/images'))
+            .set('COMMON', resolve('src/common'))
+            .set('VIEW', resolve('src/pages'))
+            .set('MAIN', resolve('src/components'))
+            .set('UTIL', resolve('src/common/util'))
+            .set('STORE', resolve('src/store'))
         if (process.env.NODE_ENV === "production") {
             config.plugin("extract-css").tap(() => [{
                 path: path.join(__dirname, "./dist"),
@@ -203,5 +200,9 @@ module.exports = {
                 filename: "js/[name].[contenthash:8].js"
             };
         }
+    },
+    // 第三方插件的选项
+    pluginOptions: {
+
     }
 }

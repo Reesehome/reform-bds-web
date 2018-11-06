@@ -2,7 +2,7 @@ import axios from 'SRC/intercept/intercept'
 
 /* 序列化工具 */
 let qs = require('qs')
-let base = process.env.MOCK_API
+let base = process.env.VUE_APP_MOCK_API
 
 /**
  * 请求基础平台框架菜单列表
