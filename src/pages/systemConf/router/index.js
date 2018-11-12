@@ -16,12 +16,12 @@ const router = new Router({
         //     name: 'MenuModule',
         //     component: () => import('SC_VIEW/menuSettings/MenuModule')
         // },
-        // // 系统管理模块-组织机构
-        {
-            path: '/system/organization',
-            name: 'Organization',
-            component: () => import('SC_VIEW/organization/index')
-        },
+        // 系统管理模块-组织机构
+        // {
+        //     path: '/system/organization',
+        //     name: 'Organization',
+        //     component: () => import('SC_VIEW/organization/index')
+        // },
         // // 系统管理模块-操作权限
         // {
         //     path: '/system/operateRights',
@@ -53,11 +53,11 @@ const router = new Router({
         //     component: () => import('SC_VIEW/log/LoginLog')
         // },
         // 系统管理模块-操作日志
-        // {
-        //     path: '/system/operateLog',
-        //     name: 'OperateLog',
-        //     component: () => import('SC_VIEW/log/OperateLog')
-        // }
+        {
+            path: '/system/operateLog',
+            name: 'OperateLog',
+            component: () => import('SC_VIEW/log/OperateLog')
+        }
     ]
 })
 export default router

@@ -170,7 +170,6 @@ module.exports = {
         Object.keys(pages).forEach(entryName => {
             config.plugins.delete(`prefetch-${entryName}`);
         });
-
         // 增加别名
         config.resolve.alias
             // 公用别名
