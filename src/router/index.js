@@ -3,29 +3,10 @@ import Router from 'vue-router'
 
 /* Layout 父路由页面 */
 import Layout from 'CMPT/layout/Layout'
-/* Router Modules */
 import components from './modules/components'
+import systemConf from 'PAGE/systemConf/router/index.js'
 
 Vue.use(Router)
-
-/** note: Submenu only appear when children.length>=1
- *  detail see  https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
- * */
-
-/**
- * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
- * alwaysShow: true               if set true, will always show the root menu, whatever its child routes length
- *                                if not set alwaysShow, only more than one route under the children
- *                                it will becomes nested mode, otherwise not show the root menu
- * redirect: noredirect           if `redirect:noredirect` will no redirect in the breadcrumb
- * name:'router-name'             the name is used by <keep-alive> (must set!!!)
- * meta : {
-    roles: ['admin','editor']     will control the page roles (you can set multiple roles)
-    title: 'title'               the name show in submenu and breadcrumb (recommend set)
-    icon: 'svg-name'             the icon show in the sidebar,
-    noCache: true                if true ,the page will no be cached(default is false)
-  }
- * */
 export const constantRouterMap = [
     {
         path: '',
@@ -37,12 +18,20 @@ export const constantRouterMap = [
                 component: () => import('PAGE/dashboard/Dashboard'),
                 name: 'Dashboard'
             },
-            // 系统管理模块-菜单管理
+            // 第二页
             {
                 path: '/system/menuSettings',
                 name: 'MenuSettings',
-                component: () => import('PAGE/systemConf/App.vue')
+                component: () => import('PAGE/page2/App.vue')
             },
+            // 第三页
+            {
+                path: '/systemConf',
+                component: () => import('PAGE/systemConf/SystemConf.vue'),
+                children: [
+                    ...systemConf.options.routes
+                ]
+            }
             // 系统管理模块-菜单模块
             // {
             //     path: '/system/menuModule',

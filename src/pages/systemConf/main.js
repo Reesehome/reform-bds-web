@@ -1,12 +1,13 @@
 import Vue from 'vue'
-import App from './App'
-
-const vm = new Vue({
-    render: h => h(App)
-}).$mount('#system')
+import SystemConf from './SystemConf.vue'
+import iView from 'iview'
+import router from './router/index'
+Vue.use(iView)
+import 'iview/dist/styles/iview.css'
 
 Vue.config.productionTip = false
 
-export {
-    vm
-}
+new Vue({
+  router,
+  render: h => h(SystemConf),
+}).$mount('#systemConf')

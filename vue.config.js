@@ -147,7 +147,6 @@ module.exports = {
 
     // webpack相关
     chainWebpack: config => {
-        // console.log(config)
         // 修改loader规则
         // 已有的loader规则请看：https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-service/lib/config/base.js
         config.module
