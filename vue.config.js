@@ -173,6 +173,7 @@ module.exports = {
 
         // 增加别名
         config.resolve.alias
+            // 公用别名
             .set('vue$', 'vue/dist/vue.esm.js')
             .set('SRC', resolve('src'))
             .set('API', resolve('src/api'))
@@ -184,6 +185,11 @@ module.exports = {
             .set('CMPT', resolve('src/components'))
             .set('UTIL', resolve('src/common/util'))
             .set('STORE', resolve('src/store'))
+            // systemConf模块别名
+            .set('SC_STYLE', resolve('src/pages/systemConf/assets/styles'))
+            .set('SC_VIEW', resolve('src/pages/systemConf/view'))
+            .set('SC_WIDGET', resolve('src/pages/systemConf/widget'))
+            .set('SC_STORE', resolve('src/pages/systemConf/store'))
         if (process.env.NODE_ENV === "production") {
             config.plugin("extract-css").tap(() => [{
                 path: path.join(__dirname, "./dist"),

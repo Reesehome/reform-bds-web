@@ -2,7 +2,7 @@
     <div style="height:100%">
         <!--导航栏部分-->
         <bds-nav :theme="theme" :menus="menus" @on-select="toPath"></bds-nav>
-        <router-view class="" />
+        <router-view class="layoutContent" />
         <footer class="layoutFooter">Copyright © 2018 Reese. All Rights Reserved. Reese 版权所有</footer>
     </div>
 </template>

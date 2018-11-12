@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import SystemConf from './SystemConf.vue'
+import SystemConfApp from './SystemConfApp.vue'
 import iView from 'iview'
 import router from './router/index'
 Vue.use(iView)
@@ -9,5 +9,5 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
-  render: h => h(SystemConf),
+  render: h => h(SystemConfApp),
 }).$mount('#systemConf')
