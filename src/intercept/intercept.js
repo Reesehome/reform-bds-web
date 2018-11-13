@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { vm } from '../pages/index/main'
+// import { vm } from '../pages/index/main'
 
 // 拦截request,设置全局请求为ajax请求
 axios.interceptors.request.use((config) => {
