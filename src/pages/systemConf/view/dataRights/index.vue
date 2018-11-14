@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import {dataRights} from 'API'
+import {dataRights} from 'SC_API'
 import {replaceArrLabel} from 'UTIL/assist'
 import SystemConf from 'SC_VIEW/layout/SystemConf'
 import SystemAside from 'SC_WIDGET/systemAside/SystemAside'

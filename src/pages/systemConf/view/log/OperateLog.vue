@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import {log} from 'API'
+import {log} from 'SC_API'
 import InnerCard from 'CMPT/inner/InnerCard'
 
 export default {

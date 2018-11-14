@@ -4,7 +4,7 @@ import Router from 'vue-router'
 /* Layout 父路由页面 */
 import Layout from 'CMPT/layout/Layout'
 import components from './modules/components'
-import systemConf from 'PAGE/systemConf/router/index.js'
+import SCRouter from 'PAGE/systemConf/router/index.js'
 
 Vue.use(Router)
 export const constantRouterMap = [
@@ -23,7 +23,7 @@ export const constantRouterMap = [
                 path: '/systemConf',
                 component: () => import('PAGE/systemConf/SystemConfApp.vue'),
                 children: [
-                    ...systemConf.options.routes
+                    ...SCRouter.options.routes
                 ]
             }
         ],

@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import {paramSettings} from 'API'
+import {paramSettings} from 'SC_API'
 import InnerCard from 'CMPT/inner/InnerCard'
 export default {
     data () {

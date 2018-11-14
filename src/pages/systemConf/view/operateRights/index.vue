@@ -75,7 +75,7 @@
 import SystemConf from 'SC_VIEW/layout/SystemConf'
 import SystemAside from 'SC_WIDGET/systemAside/SystemAside'
 import InnerCard from 'CMPT/inner/InnerCard'
-import {organization, operateRights} from 'API'
+import {organization, operateRights} from 'SC_API'
 import {replaceArrLabel} from 'UTIL/assist'
 
 export default {

@@ -77,8 +77,9 @@ import SystemConf from 'SC_VIEW/layout/SystemConf'
 import SystemAside from 'SC_WIDGET/systemAside/SystemAside'
 import OrgDepartment from './OrgDepartment-editor'
 import OrgUser from './OrgUser-editor'
-import {organization} from 'API'
+import {organization} from 'SC_API'
 import dayjs from 'dayjs'
+import store from '../../store'
 
 export default {
     data () {
@@ -127,7 +128,7 @@ export default {
         },
         // 获取部门列表
         getOrgDepartments () {
-            this.$store.dispatch('SetOrgDepartments').then(res => {
+            store.dispatch('SetOrgDepartments').then(res => {
                 this.orgDepartmentTree = res.data
             }).catch(err => {
                 this.$$Message.error(err.message)
@@ -147,7 +148,7 @@ export default {
         // 获取用户列表
         getOrdUsers () {
             this.isOrgUsersLoading = true
-            this.$store.dispatch('SetOrgUsers').then(res => {
+            store.dispatch('SetOrgUsers').then(res => {
                 this.orgUsersData = res.data.rows
                 this.isOrgUsersLoading = false
             }).catch(err => {

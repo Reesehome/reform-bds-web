@@ -1,7 +1,11 @@
-import { organization } from 'API'
+import Vue from 'vue'
+import Vuex from 'vuex'
+import { organization } from 'SC_API'
 import { replaceArrLabel } from 'UTIL/assist'
 
-const bds = {
+Vue.use(Vuex)
+
+const store = new Vuex.Store({
     state: {
         orgUsers: [],
         orgDepartmentTree: []
@@ -41,6 +45,6 @@ const bds = {
             })
         }
     }
-}
+})
 
-export default bds
+export default store

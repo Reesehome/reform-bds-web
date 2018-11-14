@@ -105,7 +105,7 @@
 import SystemConf from 'SC_VIEW/layout/SystemConf'
 import SystemAside from 'SC_WIDGET/systemAside/SystemAside'
 import InnerCard from 'CMPT/inner/InnerCard'
-import {dictionary} from 'API'
+import {dictionary} from 'SC_API'
 import {replaceArrLabel} from 'UTIL/assist'
 export default {
     data () {

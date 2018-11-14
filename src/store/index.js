@@ -5,12 +5,12 @@ import errorLog from './modules/errorLog'
 import permission from './modules/permission'
 import getters from './getters'
 
-import bds from './modules/bds'
+// import bds from './modules/bds'
 
 Vue.use(Vuex)
 
 const modules = {
-    bds,
+    // bds,
     app,
     permission,
     errorLog

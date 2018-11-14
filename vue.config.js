@@ -189,6 +189,8 @@ module.exports = {
             .set('SC_VIEW', resolve('src/pages/systemConf/view'))
             .set('SC_WIDGET', resolve('src/pages/systemConf/widget'))
             .set('SC_STORE', resolve('src/pages/systemConf/store'))
+            .set('SC_API', resolve('src/pages/systemConf/api'))
+            .set('SC_STORE', resolve('src/pages/systemConf/store'))
         if (process.env.NODE_ENV === "production") {
             config.plugin("extract-css").tap(() => [{
                 path: path.join(__dirname, "./dist"),

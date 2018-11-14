@@ -209,11 +209,12 @@
 </template>
 
 <script>
-import {organization} from 'API'
+import {organization} from 'SC_API'
 import {replaceArrLabel} from 'UTIL/assist'
 import {isNumber, isFax, isPhone, isIP} from 'UTIL/validate'
 import InnerCard from 'CMPT/inner/InnerCard'
 import InnerTree from 'CMPT/inner/InnerTree'
+import store from 'SC_STORE'
 
 export default {
     name: 'org-user',
@@ -367,7 +368,7 @@ export default {
         },
         // 获取部门树结构
         getDepartmentTree () {
-            let arr = this.$store.state.bds.orgDepartmentTree
+            let arr = store.state.orgDepartmentTree
             const departments = this.userData.departments
             if (departments) {
                 departments.forEach(item => {

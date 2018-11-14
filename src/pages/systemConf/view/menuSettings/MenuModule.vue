@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import {menuModule} from 'API'
+import {menuModule} from 'SC_API'
 import InnerCard from 'CMPT/inner/InnerCard'
 export default {
     data () {
