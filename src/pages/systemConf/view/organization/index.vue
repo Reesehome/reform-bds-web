@@ -79,7 +79,7 @@ import OrgDepartment from './OrgDepartment-editor'
 import OrgUser from './OrgUser-editor'
 import {organization} from 'SC_API'
 import dayjs from 'dayjs'
-import store from '../../store'
+import store from 'SC_STORE'
 
 export default {
     data () {
