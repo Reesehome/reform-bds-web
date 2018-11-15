@@ -28,7 +28,7 @@
         <!-- 用户列表 -->
         <system-aside slot="systemAside" title="用户列表" style="height:48%" :showDefaultContent="false">
             <!-- 操作区 -->
-            <div slot="actionBlock" class="actionBlock">
+            <div slot="actionBlock">
                 <i-button @click="addOrgUser">新增</i-button>
                 <i-button>删除</i-button>
             </div>

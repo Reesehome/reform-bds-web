@@ -3,7 +3,7 @@
             默认内容为树结构，如要更改内容插槽，要同时设置showDefaultContent='false' -->
     <i-card :title="title" :icon="icon">
         <!-- 附加操作 -->
-        <div slot="extra">
+        <div slot="extra" class="actionBlock">
             <slot name="actionBlock"></slot>
         </div>
         <!-- 内容 -->
