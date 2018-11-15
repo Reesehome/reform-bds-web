@@ -25,6 +25,25 @@ const replaceArrLabel = (arr, oldLab, newLab) => {
     // })
     return arr
 }
+
+// 递归获得父子层级
+const pushIntoParent = (arr, item) => {
+    const parentId = item.parentId
+    const arrLength = arr.length
+    for (let i = 0; i < arrLength; i++) {
+        if (parentId === arr[i].id) {
+            if (!arr[i].children) {
+                arr[i].children = [].concat(item)
+                return
+            }
+            arr[i].children.push(item)
+            return
+        }
+        // 逐层检查
+        if (arr[i].children) pushIntoParent(arr[i].children, item)
+    }
+}
 export {
-    replaceArrLabel
+    replaceArrLabel,
+    pushIntoParent
 }
