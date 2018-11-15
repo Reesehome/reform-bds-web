@@ -63,10 +63,10 @@
         <!-- 属性编辑区 -->
         <div slot="systemEditor" style="height:100%">
             <transition name="fadeIn">
-                <org-department :newDepartment="isNewDepartment" :activeTab="activeTab" :departmentData="orgDepartmentData" v-show="searchType==='department'"></org-department>
+                <org-dept-editor :newDepartment="isNewDepartment" :activeTab="activeTab" v-show="searchType==='department'" :deptId="selectedDeptId"></org-dept-editor>
             </transition>
             <transition name="fadeIn">
-                <org-user :newUser="isNewUser" :activeTab="activeTab" :userData="orgUserData" v-show="searchType==='user'"></org-user>
+                <org-user-editor :newUser="isNewUser" :activeTab="activeTab" :userData="orgUserData" v-show="searchType==='user'"></org-user-editor>
             </transition>
         </div>
     </system-conf>
@@ -75,8 +75,8 @@
 <script>
 import SystemConf from 'SC_VIEW/layout/SystemConf'
 import SystemAside from 'SC_WIDGET/systemAside/SystemAside'
-import OrgDepartment from './OrgDepartment-editor'
-import OrgUser from './OrgUser-editor'
+import OrgDeptEditor from './department/OrgDeptEditor'
+import OrgUserEditor from './user/OrgUserEditor'
 import {organization} from 'SC_API'
 import dayjs from 'dayjs'
 import store from 'SC_STORE'
@@ -108,14 +108,14 @@ export default {
             isOrgUsersLoading: false, // 创建新部门的控制变量
             orgUserData: {}, // 选中的用户列表的某一项
             orgDepartmentTree: [], // 全部的部门数据
-            orgDepartmentData: {} // 选中部门树结构的某一部门数据
+            selectedDeptId: '' // 选中部门树结构的某一部门id
         }
     },
     components: {
         SystemConf,
         SystemAside,
-        OrgDepartment,
-        OrgUser
+        OrgDeptEditor,
+        OrgUserEditor
     },
     methods: {
         // 切换搜索类型
@@ -135,15 +135,11 @@ export default {
             })
         },
         // 选择某个部门
-        selectOrgDepartment () {
-            organization.getDepartentData({}).then(res => {
-                this.orgDepartmentData = res.data
-                this.searchType = 'department'
-                this.activeTab = 'baseInfoTab'
-                this.isNewUser = false
-            }).catch(err => {
-                this.$Message.error(err.message)
-            })
+        selectOrgDepartment (node) {
+            this.searchType = 'department'
+            this.activeTab = 'baseInfoTab'
+            this.isNewUser = false
+            this.selectedDeptId = node.id
         },
         // 获取用户列表
         getOrdUsers () {

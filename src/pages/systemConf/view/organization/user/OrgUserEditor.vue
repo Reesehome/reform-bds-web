@@ -217,7 +217,7 @@ import InnerTree from 'CMPT/inner/InnerTree'
 import store from 'SC_STORE'
 
 export default {
-    name: 'org-user',
+    name: 'org-user-editor',
     props: {
         newUser: Boolean,
         activeTab: String,

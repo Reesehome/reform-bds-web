@@ -13,7 +13,7 @@
             <i-tabs size="small" type="card" :value="activeTab">
                 <!-- 基本信息 -->
                 <i-tab-pane label="基本信息" name="baseInfoTab">
-                    <base-info-tab></base-info-tab>
+                    <baseinfo-tab></baseinfo-tab>
                 </i-tab-pane>
                 <!-- 包含的权限 -->
                 <i-tab-pane label="包含的权限" name="constituteTab">
@@ -40,7 +40,7 @@
 import SystemConf from 'SC_VIEW/layout/SystemConf'
 import SystemAside from 'SC_WIDGET/systemAside/SystemAside'
 
-import BaseInfoTab from './BaseInfoTab'
+import BaseinfoTab from './BaseinfoTab'
 import ConstituteTab from './ConstituteTab'
 import AuthorizeTab from './AuthorizeTab'
 import DeptPreviewTab from './DeptPreviewTab'
@@ -59,7 +59,7 @@ export default {
     components: {
         SystemConf,
         SystemAside,
-        BaseInfoTab,
+        BaseinfoTab,
         ConstituteTab,
         AuthorizeTab,
         DeptPreviewTab,

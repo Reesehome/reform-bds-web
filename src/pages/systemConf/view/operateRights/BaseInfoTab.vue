@@ -15,7 +15,7 @@
 import InnerCard from 'CMPT/inner/InnerCard'
 
 export default {
-    name: 'base-info-tab',
+    name: 'baseinfo-tab',
     data () {
         return {
 
